@@ -60,8 +60,7 @@ public class Radio {
     public void remoteCurrentStation(int currentStation) {
         if (currentStation > maxStation) {
             this.currentStation = maxStation;
-        } else
-        if (currentStation < minStation) {
+        } else if (currentStation < minStation) {
             this.currentStation = minStation;
         } else {
             this.currentStation = currentStation;
