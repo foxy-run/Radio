@@ -9,8 +9,7 @@ class RadioTest {
 
     @Test
     public void nextCurrentStationTestNormalStation() {
-        radio.setMaxStation(14);
-        radio.setMinStation(0);
+
         radio.setCurrentStation(4);
         radio.nextCurrentStation();
         assertEquals(5, radio.getCurrentStation());
@@ -18,8 +17,7 @@ class RadioTest {
 
     @Test
     public void nextCurrentStationTestMaxBorderStation() {
-        radio.setMaxStation(14);
-        radio.setMinStation(0);
+
         radio.setCurrentStation(14);
         radio.nextCurrentStation();
         assertEquals(0, radio.getCurrentStation());
@@ -27,8 +25,7 @@ class RadioTest {
 
     @Test
     public void prevCurrentStationTestNormalStation() {
-        radio.setMaxStation(14);
-        radio.setMinStation(0);
+
         radio.setCurrentStation(4);
         radio.prevCurrentStation();
         assertEquals(3, radio.getCurrentStation());
@@ -36,8 +33,7 @@ class RadioTest {
 
     @Test
     public void prevCurrentStationTestMinBorderStation() {
-        radio.setMaxStation(14);
-        radio.setMinStation(0);
+
         radio.setCurrentStation(0);
         radio.prevCurrentStation();
         assertEquals(14, radio.getCurrentStation());
@@ -45,8 +41,7 @@ class RadioTest {
 
     @Test
     public void remoteCurrentStationTestNormalStation() {
-        radio.setMaxStation(10);
-        radio.setMinStation(0);
+
         radio.setCurrentStation(4);
         radio.remoteCurrentStation(4);
         assertEquals(4, radio.getCurrentStation());
@@ -54,8 +49,6 @@ class RadioTest {
 
     @Test
     public void remoteCurrentStationTestOverMaxStation() {
-        radio.setMaxStation(14);
-        radio.setMinStation(0);
         radio.setCurrentStation(4);
         radio.remoteCurrentStation(15);
         assertEquals(14, radio.getCurrentStation());
@@ -63,8 +56,7 @@ class RadioTest {
 
     @Test
     public void remoteCurrentStationTestUndereMinStation() {
-        radio.setMaxStation(14);
-        radio.setMinStation(0);
+
         radio.setCurrentStation(4);
         radio.remoteCurrentStation(-1);
         assertEquals(0, radio.getCurrentStation());
@@ -72,8 +64,6 @@ class RadioTest {
 
     @Test
     public void nextCurrentVolumeTestNormalVolume() {
-        radio.setMaxVolume(14);
-        radio.setMinVolume(0);
         radio.setCurrentVolume(4);
         radio.nextCurrentVolume();
         assertEquals(5, radio.getCurrentVolume());
@@ -100,22 +90,10 @@ class RadioTest {
         assertEquals(0, radio.getCurrentVolume());
     }
 
-    @Test
-    public void setMaxStationTest() {
-        radio.setMaxStation(14);
-        assertEquals(14, radio.getMaxStation());
-    }
-
-    @Test
-    public void setMinStationTest() {
-        radio.setMinStation(0);
-        assertEquals(0, radio.getMinStation());
-    }
 
     @Test
     public void setCurrentStationTestOverMaxStation() {
-        radio.setMaxStation(14);
-        radio.setMinStation(0);
+
         radio.setCurrentStation(13);
         radio.setCurrentStation(25);
         assertEquals(13, radio.getCurrentStation());
@@ -123,24 +101,12 @@ class RadioTest {
 
     @Test
     public void setCurrentStationTestUnderMinStation() {
-        radio.setMaxStation(14);
-        radio.setMinStation(0);
+
         radio.setCurrentStation(13);
         radio.setCurrentStation(-1);
         assertEquals(13, radio.getCurrentStation());
     }
 
-    @Test
-    public void setMaxVolumeTest() {
-        radio.setMaxVolume(100);
-        assertEquals(100, radio.getMaxVolume());
-    }
-
-    @Test
-    public void setMinVolumeTest() {
-        radio.setMinVolume(0);
-        assertEquals(0, radio.getMinVolume());
-    }
 
     @Test
     public void setCurrentVolumeTestOverMaxVolume() {
