@@ -109,14 +109,12 @@ class RadioTest {
 
     @Test
     public void setMaxVolumeTest() {
-        Radio radio = new Radio();
         radio.setMaxVolume(100);
         assertEquals(100, radio.getMaxVolume());
     }
 
     @Test
     public void setMinVolumeTest() {
-        Radio radio = new Radio();
         radio.setMinVolume(0);
         assertEquals(0, radio.getMinVolume());
     }
